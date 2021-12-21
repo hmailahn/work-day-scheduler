@@ -1,81 +1,9 @@
-// $(".list-group").on("click", "p", function() {
-//     var text = $(this)
-//       .text()
-//       .trim();
-//   });
-
-// tasks.toDo.push({
-//     text: taskText,
-//     date: taskDate
-//   });
-
-//   saveTasks();
-
-// var saveTasks = function() {
-//     localStorage.setItem("tasks", JSON.stringify(tasks));
-//   };
-
-//   var loadTasks = function() {
-//     tasks = JSON.parse(localStorage.getItem("tasks"));
-
-//     // if nothing in localStorage, create a new object to track all task status arrays
-//     if (!tasks) {
-//       tasks = {
-//         toDo: [],
-//         inProgress: [],
-//         inReview: [],
-//         done: []
-//       };
-//     }
-//   };
-
 
 //display current day & time.
 $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
 
 
-// // content textarea was clicked
-// $(".content").on("click", "textarea", function () {
-//     //get current text of p element
-//     var text = $(this)
-//         .text()
-//         .trim();
 
-//     //replace <p> with text area
-//     var textInput = $("<textarea>").addClass(".form-control").val(text);
-//     $(this).replaceWith(textInput);
-
-//     //aut focus on new element 
-//     textInput.trigger("focus");
-// });
-
-
-// //editable field was un-focused
-// $(".content").on("blur", "textarea", function () {
-//     //get current value of textarea
-//     var text = $(this).val();
-
-//     // //get status type and position in the list 
-//     // var status = $(this)
-//     // .closest(".list-group")
-//     // .attr("id")
-//     // .replace("list-", "");
-//     // var index = $(this)
-//     // .closest(".list-group-item")
-//     // .index();
-
-//     // // update task in array and re-save to localstorage
-//     // tasks[status][index].text = text;
-//     // saveTasks(); 
-
-//     // recreate p element
-//     var taskP = $("<p>")
-//         .addClass("m-1 description")
-//         .text(text);
-
-//     // replace textarea with new content
-//     $(this).replaceWith(taskP);
-// })
 
 $(".saveBtn").on("click", function () {
     //get values and save
@@ -85,6 +13,7 @@ $(".saveBtn").on("click", function () {
     //set items in local storage.
     localStorage.setItem(time, text);
 })
+
 
 // Get item from local storage if any
 $("#hour8 .description").text(localStorage.getItem("hour8"));
@@ -99,7 +28,31 @@ $("#hour16 .description").val(localStorage.getItem("hour16"));
 $("#hour17 .description").val(localStorage.getItem("hour17"));
 
 
+var auditTime = function(){
+    var currentHour = moment().hour(); // use of moment.js
+    
+        // loop over time blocks
+        $(".time-block").each(function () {
+            var blockHour = parseInt($(this).attr("id").split("hour")[1]);
+            console.log( blockHour, currentHour)
 
-////fix save button and local storage
+            //check if we've moved past this time, click into css/html given classes of past, present, or future
+            if (blockHour < currentHour) {
+                $(this).addClass("past");
+                $(this).removeClass("future");
+                $(this).removeClass("present");
+            }
+            else if (blockHour === currentHour) {
+                $(this).removeClass("past");
+                $(this).addClass("present");
+                $(this).removeClass("future");
+            }
+            else {
+                $(this).removeClass("present");
+                $(this).removeClass("past");
+                $(this).addClass("future");
+            }
+        });
+    }
+    auditTime(); 
 
-// need to add time loop and bootstrap classes
