@@ -101,3 +101,5 @@ $("#hour17 .description").val(localStorage.getItem("hour17"));
 
 
 ////fix save button and local storage
+
+// need to add time loop and bootstrap classes
