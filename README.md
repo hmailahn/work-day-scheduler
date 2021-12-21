@@ -19,6 +19,6 @@ YOUR DAY IS COLOR CODED AS YOU GO ON. ITEMS IN THE PAST ARE GRAY, ITEMS IN THE P
 * MOMENT.JS
 
 ## WEBSITE
-HERE IS A SCREENSHOT OF THE FINISHED PRODUCT: ![image]"https://github.com/hmailahn/work-day-scheduler/blob/main/assets/images/screenshot.png"
+HERE IS A SCREENSHOT OF THE FINISHED PRODUCT: ![image](https://github.com/hmailahn/work-day-scheduler/blob/main/assets/images/screenshot.png)
 HERE IS A LINK TO THE DEPOLYED PRODUCT: https://hmailahn.github.io/work-day-scheduler/
 HERE IS THE LINK TO THE REPOSITORY : https://github.com/hmailahn/work-day-scheduler
